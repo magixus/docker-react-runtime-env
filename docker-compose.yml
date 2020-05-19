@@ -1,0 +1,14 @@
+version:  '3'
+
+services:
+    react-docker:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: magixus/react-docker:latest
+        container_name: react-docker
+        restart: unless-stopped
+        ports:
+            - "9000:80"
+        environment:
+            - REACT_APP_API_AUTH=https://api.cevital.com

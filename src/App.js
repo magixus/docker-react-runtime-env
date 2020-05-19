@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles.container}>
+      <h1>hi {process.env.NODE_ENV} ==> {process.env.REACT_APP_NAME}</h1>
+      <h2>API_URL: {process.env.REACT_APP_API_URL}</h2>
+
     </div>
   );
 }
 
-export default App;
+const styles = {
+  container: {
+    flex: 1,
+    width: 300,
+    height: 300,
+    flexDirection: "column" ,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+}
+
+
