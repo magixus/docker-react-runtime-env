@@ -5,7 +5,7 @@ rm -rf ./env-config.js
 touch ./env-config.js
 
 # Add assignment
-printf "window.globalThis.process = {\n\tenv : {\n" >> ./env-config.js
+printf "window._env_ =  {\n" >> ./env-config.js
 
 # Each line represents key=value pairs
 env | while read -r line || [[ -n "$line" ]];
@@ -15,8 +15,8 @@ env | while read -r line || [[ -n "$line" ]];
       value=$(printf '%s\n' "$line" | sed -e 's/^[^=]*=//')
 
       # Append configuration property to JS file
-      printf "\t\t$key: \"$value\",\n" >> ./env-config.js
+      printf "\t$key: \"$value\",\n" >> ./env-config.js
     fi
   done
-printf  "\t}\n}\n" >> ./env-config.js
+printf  "}\n" >> ./env-config.js
 
